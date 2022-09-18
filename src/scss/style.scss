@@ -1,13 +1,118 @@
+@mixin flexbox($flex, $column, $justify, $align) {
+    display: $flex;
+    flex-direction: $column;
+    justify-content: $justify;
+    align-items: $align;
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
+    font-weight: lighter;
+    font-size: 24px;
 }
 
 header {
-    display: flex;
-    justify-content: space-evenly;
+    @include flexbox(flex, null, space-around, null);
+    color: white;
+    margin-bottom: 20px;
 }
 
-.logo {
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    background-color: #232323;
+
+    >a {
+        display: flex;
+        align-items: center;
+        color: white;
+        padding: 30px;
+        font-size: 24px;
+        text-transform: capitalize;
+        text-decoration: none;
+        width: 16.6%;
+        justify-content: center;
+    }
+
+    >img.logo {
+        width: 16.6%;
+    }
+}
+
+a:hover {
+    background-color: #54be90;
+}
+
+
+
+.intro_background {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background-image: url("../img/hd-wallpaper-3890988_1280.jpg");
+    filter: brightness(50%);
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    color: white;
+    font-size: 35px;
+
+    h1 {
+        text-align: center;
+
+    }
+
+}
+
+.text_intro>p {
+    text-align: center;
+    padding: 50px;
+
+}
+
+.circles {
+    padding: 0;
+    @include flexbox(flex, row, space-evenly, center);
+}
+
+.circle {
+    height: 100px;
+    position: absolute;
     width: 100px;
+    background-color: white;
+    border-radius: 50%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: -105px;
+}
+
+.text_intro_two {
+    background-color: #232323;
+
+}
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 50px;
+    color: white;
+
+    h2 {
+        color: #54be90;
+    }
+
+    .card {
+        position: relative;
+    }
+}
+
+.skills_section {
+    @include flexbox(flex, column, center, center);
 }
